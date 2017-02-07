@@ -9,7 +9,6 @@ class Game
     current_player = player1
 
     (1..9).each do |i|
-      
       bord.print_instructions
       bord.print_bord
 
@@ -37,16 +36,19 @@ class Game
     puts "player #{current_player.name}: make your move"
 
     move = gets.chomp.to_i
-    self.clear_screen
 
     if bord.values_bord[move] == " "
       bord.values_bord[move] = current_player.name
-   #check for wrong input
+    elsif  !(1..9).include?(move)
+      puts "Wrong input, please pick a number from 1 to 9"
+      self.play(current_player)
     else
-      puts "Already taken, play try again"
+      puts "Already taken, play again"
       puts "\n"
       self.play(current_player)
     end
+    self.clear_screen
+
   end
 
   def check_winner(current_player)

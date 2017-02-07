@@ -27,7 +27,5 @@ class Bord
     puts "#{self.values_bord[7]} | #{self.values_bord[8]} | #{self.values_bord[9]}"
     puts ""
   end
-
-
-
+  
 end
